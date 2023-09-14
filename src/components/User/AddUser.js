@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './AddUser.css';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
-import ErrorModal from '../../components/ErrorModal/ErrorModal';
+import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 
 const INTIAL_USERDATA = {
     userName: '',
@@ -39,7 +40,7 @@ const AddUser = (props) => {
 
 
     return (
-        <div>
+        <Wrapper>
             {error && <ErrorModal onConfirm={errorHandler} message={error.message} />}
             <Card className="input" >
                 <form onSubmit={submitHandler}>
@@ -52,7 +53,7 @@ const AddUser = (props) => {
                     <Button type="submit">AddUser</Button>
                 </form>
             </Card>
-        </div>
+        </Wrapper>
     );
 }
 export default AddUser;
